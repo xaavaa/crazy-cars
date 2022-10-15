@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap%27');
 
 .container {  display: grid;
-    grid-template-columns: 1fr 0.5fr 1.5fr;
-    grid-template-rows: 1fr 0.4fr 1.6fr;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-rows: 1fr 0.6fr 1.6fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -71,11 +71,94 @@
   
   .arabia { grid-area: arabia; }
   
+.giffons {
+    width: 1050px;
+    height: 1050px;
+    position: absolute;
+}
+
+.video{
+    z-index: 1;
+    height: 330px;
+    width: 560px;
+    background-color: aliceblue;
+    border: 5px solid blueviolet;
+    margin-left:30px;
+    position: fixed;
+    margin-top: 5px;
+}
+
+.paisos {
+    z-index: 1;
+    position: absolute;
+    margin-top: 542px;
+    margin-left:30px;
+    position: fixed;
+}
+
 .banderes {
-   width: 205px;
-   height: 150px;
+   z-index:1;
+   width: 180px;
+   height: 123px;
    text-align: center;
    overflow: hidden;
-   margin:10px;
    border: 5px solid blueviolet;
+   margin-top:2.5px;
 }
+
+.primers img{
+z-index: 1;
+border: 5px solid blueviolet;
+position: absolute;
+margin-top:350px;
+width: 560px;
+height: 180px;
+margin-left:30px;
+position: fixed;
+}
+
+.primers .top1{
+    z-index: 2;
+    height: 50px;
+    width: 75px;
+    position: absolute;
+    margin-left: 260px;
+    margin-top: 50px;
+}
+
+.primers .top2{
+    z-index: 2;
+    height: 50px;
+    width: 75px;
+    position: absolute;
+    margin-left: 367px;
+    margin-top: 70px;
+}
+
+.primers .top3{
+    z-index: 2;
+    height: 50px;
+    width: 75px;
+    position: absolute;
+    margin-left: 155px;
+    margin-top: 85px;
+}
+
+.primers .top4{
+    z-index: 2;
+    height: 50px;
+    width: 75px;
+    position: absolute;
+    margin-left: 475px;
+    margin-top: 103px;
+}
+
+.primers .top5{
+    z-index: 2;
+    height: 50px;
+    width: 75px;
+    position: absolute;
+    margin-left: 45px;
+    margin-top: 115px;
+}
+
