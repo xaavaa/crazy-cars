@@ -73,27 +73,29 @@ function isPendingStreak(data) {
 }
 
 function addLikesItem(data) {
-    let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
+    let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.likescontainer');
 
     if (container.find('div').length > 200) {
         container.find('div').slice(0, 100).remove();
     }
-
-    let streakId = data.userId.toString() + '_' + data.giftId;
+    if(data.isSubscriber) {
+        var seguidor = "Seguidor";
+    } else {
+        var seguidor = "No Seguidor";
+    }
+    
+    let streakId = data.nickname.toString() + '_' + data.likeCount;
 
     let html = `
         <div data-streakid=${isPendingStreak(data) ? streakId : ''}>
             <img class="miniprofilepicture" src="${data.profilePictureUrl}">
             <span>
-                <b>${generateUsernameLink(data)}:</b> <span>${data.describe}</span><br>
+                <b>${generateUsernameLink(data)}:</b> <span>${seguidor}</span><br>
                 <div>
                     <table>
                         <tr>
-                            <td><img class="gifticon" src="${data.giftPictureUrl}"></td>
                             <td>
-                                <span>Name: <b>${data.giftName}</b> (ID:${data.giftId})<span><br>
-                                <span>Repeat: <b style="${isPendingStreak(data) ? 'color:red' : ''}">x${data.repeatCount.toLocaleString()}</b><span><br>
-                                <span>Cost: <b>${(data.diamondCount * data.repeatCount).toLocaleString()} Diamonds</b><span>
+                                <span>Likes: <b>${data.likeCount}</b> (ID:${data.userId})<span><br>
                             </td>
                         </tr>
                     </tabl>
@@ -213,7 +215,7 @@ connection.on('like', (msg) => {
         addChatItem('#447dd4', msg, msg.label.replace('{0:user}', '').replace('likes', `${msg.likeCount} likes`))
     }
 
-    addLikesItem(msg)
+    addLikesItem(msg);
 
 })
 
