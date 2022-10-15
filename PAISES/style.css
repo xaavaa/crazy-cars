@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap%27');
+
+.container {  display: grid;
+    grid-template-columns: 1fr 0.5fr 1.5fr;
+    grid-template-rows: 1fr 0.4fr 1.6fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "video video input"
+      "primers primers espectadors"
+      "paisos paisos diamants";
+  }
+  
+  .input { grid-area: input; }
+  
+  .espectadors { grid-area: espectadors; }
+  
+  .diamants { grid-area: diamants; }
+  
+  .video { grid-area: video; }
+  
+  .primers {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "top5 top3 top1 top2 top4";
+    grid-area: primers;
+  }
+  
+  .top1 { grid-area: top1; }
+  
+  .top2 { grid-area: top2; }
+  
+  .top3 { grid-area: top3; }
+  
+  .top4 { grid-area: top4; }
+  
+  .top5 { grid-area: top5; }
+  
+  .paisos {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "eeuu india ukrania"
+      "spain inglaterra china"
+      "francia alemania arabia";
+    grid-area: paisos;
+  }
+  
+  .eeuu 
+  { grid-area: eeuu; 
+}
+  
+  .india { grid-area: india; }
+  
+  .ukrania { grid-area: ukrania; }
+  
+  .spain { grid-area: spain; }
+  
+  .inglaterra { grid-area: inglaterra; }
+  
+  .china { grid-area: china; }
+  
+  .francia { grid-area: francia; }
+  
+  .alemania { grid-area: alemania; }
+  
+  .arabia { grid-area: arabia; }
+  
+.banderes {
+   width: 205px;
+   height: 150px;
+   text-align: center;
+   overflow: hidden;
+   margin:10px;
+   border: 5px solid blueviolet;
+}

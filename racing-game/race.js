@@ -17,7 +17,7 @@ function carClass() {
   
     // constants for car direction
     const CAR_START_NORTH = -90;
-    const CAR_START_SOUTH = 90;
+    const CAR_START_SOUTH = 0;
     const CAR_START_EAST = 0;
     const CAR_START_WEST = 180;
 
@@ -161,40 +161,8 @@ var masterLevelMap1 =[1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1
 					  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 					  1, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,5];
 
-var masterLevelMap2 =[10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                      1, 0, 0, 1, 7, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 1, 3, 1, 1,
-                      1, 0, 0, 1, 7, 1, 0, 7, 0, 0, 0, 1, 4, 4, 4, 4, 1, 0, 1, 1,
-                      1, 0, 7, 1, 7, 1, 0, 0, 0, 0, 0, 1, 4, 4, 4, 4, 1, 0, 1, 1,
-                      1, 0, 0, 1, 7, 1, 0, 0, 1, 0, 0, 1, 4, 4, 4, 4, 1, 0, 1, 1,
-                      1, 0, 0, 1, 7, 1, 0, 0, 1, 0, 0, 1, 4, 4, 4, 4, 1, 0, 1, 1,
-                      1, 0, 0, 1, 7, 1, 0, 0, 1, 0, 0, 1, 4, 4, 4, 1, 1, 0, 1, 1,
-                      1, 7, 0, 1, 7, 1, 0, 0, 1, 0, 7, 1, 4, 4, 1, 1, 0, 0, 1, 1,
-                      1, 0, 0, 1, 7, 1, 0, 0, 1, 0, 0, 1, 4, 4, 1, 7, 0, 0, 1, 1,
-                      1, 0, 0, 1, 7, 1, 0, 0, 1, 0, 0, 1, 4, 4, 1, 0, 0, 0, 1, 1,
-                      1, 0, 7, 1, 7, 1, 0, 0, 1, 0, 0, 1, 4, 4, 1, 0, 0, 0, 1, 1,
-                      1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1,
-                      1, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 7, 0, 0, 0, 0, 7, 3,
-                      1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3,
-                      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-
-var masterLevelMap3 =[11, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
-                      8, 6, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 6, 8,
-                      8, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0, 8,
-                      8, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8,
-                      8, 0, 0, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 6, 0, 0, 8,
-                      8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8,
-                      8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 6, 0, 0, 8, 0, 0, 8,
-                      8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8,
-                      8, 0, 6, 8, 8, 8, 8, 8, 8, 8, 8, 6, 0, 0, 0, 0, 8, 0, 0, 8,
-                      8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8,
-                      8, 0, 0, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 0, 8,
-                      8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8,
-                      8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 6, 0, 0, 8, 0, 0, 8,
-                      8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 2, 2, 8,
-                      8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8];
-
 // list that contains the variable names of all master level maps
-var arrayOfLevelMaps = [masterLevelMap1, masterLevelMap2, masterLevelMap3];
+var arrayOfLevelMaps = [masterLevelMap1];
 
 // this variable keeps track of which map we are currently using
 var currentLevelMapNumber = 0;
@@ -489,7 +457,7 @@ function carTrackInteraction(whichCar) {
             if(currentLevelMapNumber === arrayOfLevelMaps.length){
                 //console.log(currentLevelMapNumber);
                 winner = true;
-                announceWinner = "ud83dude03  " + whichCar.name + " Wins the race!";
+                announceWinner = "ud83dude03 with" + whichCar.name + " Wins the race!";
                 clearInterval(timer);
             }
             // Once a car wins on current map, load next map and place cars.
