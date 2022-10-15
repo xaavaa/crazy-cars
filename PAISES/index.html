@@ -3,6 +3,22 @@
 <html lang="es">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crazy Cars</title>
+
+  <meta name="description" content="A chat reader for TikTok LIVE utilizing TikTok-Live-Connector and Socket.IO to forward the data to the client. This demo project uses the unofficial TikTok API to retrieve chat comments, gifts and other events from TikTok LIVE.">
+  <meta name="keywords" content="TikTok,Live,Livestream,Chat,Reader,Scraper,Tracker,tiktok.com,broadcast,api,library,node,node.js,javascript">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="connection.js"></script>
+  <script src="app.js"></script>
+
 <meta charset="utf-8" /> 
 <title> XaviFerri </title>
 <link rel="stylesheet" href="style.css" />
@@ -10,10 +26,35 @@
 
 <body>
     <div class="container">
-        <div class="input"></div>
+        <div class="input">
+          <div class="inputFields">
+            <input type="text" id="uniqueIdInput">
+            <input type="button" id="connectButton" value="connect">
+            <input type="button" id="stopButton" value="stop">
+            <a href="#" onclick="generateOverlay()">Generate Overlay URL</a>
+          </div>
+
+          <table class="splitstatetable">
+            <tr>
+                <td>
+                    <pre id="stateText"></pre>
+                </td>
+                <td>
+                    <div id="roomStats"></div>
+                </td>
+            </tr>
+        </table>
+        </div>
         <div class="espectadors"></div>
-        <div class="diamants"></div>
-        <div class="video"></div>
+        <div class="diamants">
+          <div class="country-ranks">
+            <h3 class="containerheader">Country donations</h3>
+        </div>
+        </div>
+        <div class="video">
+          <video type="video/mp4" src="" class="video" id="video">
+          </video>
+        </div>
         <div class="primers">
           <div class="top1"></div>
           <div class="top2"></div>

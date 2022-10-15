@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap%27');
 
 .container {  display: grid;
-    grid-template-columns: 1fr 0.5fr 1.5fr;
+    grid-template-columns: 1fr 0.5fr 1fr;
     grid-template-rows: 1fr 0.4fr 1.6fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -9,6 +9,9 @@
       "video video input"
       "primers primers espectadors"
       "paisos paisos diamants";
+  }
+  .video {
+    object-fit: fill;
   }
   
   .input { grid-area: input; }
