@@ -12,6 +12,7 @@ if (!window.settings) window.settings = {};
 
 $(document).ready(() => {
     $('#connectButton').click(connect);
+    $('#stopButton').click(endConnection);
     $('#uniqueIdInput').on('keyup', function (e) {
         if (e.key === 'Enter') {
             connect();
@@ -69,6 +70,50 @@ function generateUsernameLink(data) {
 
 function isPendingStreak(data) {
     return data.giftType === 1 && !data.repeatEnd;
+}
+
+function addLikesItem(data) {
+    let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
+
+    if (container.find('div').length > 200) {
+        container.find('div').slice(0, 100).remove();
+    }
+
+    let streakId = data.userId.toString() + '_' + data.giftId;
+
+    let html = `
+        <div data-streakid=${isPendingStreak(data) ? streakId : ''}>
+            <img class="miniprofilepicture" src="${data.profilePictureUrl}">
+            <span>
+                <b>${generateUsernameLink(data)}:</b> <span>${data.describe}</span><br>
+                <div>
+                    <table>
+                        <tr>
+                            <td><img class="gifticon" src="${data.giftPictureUrl}"></td>
+                            <td>
+                                <span>Name: <b>${data.giftName}</b> (ID:${data.giftId})<span><br>
+                                <span>Repeat: <b style="${isPendingStreak(data) ? 'color:red' : ''}">x${data.repeatCount.toLocaleString()}</b><span><br>
+                                <span>Cost: <b>${(data.diamondCount * data.repeatCount).toLocaleString()} Diamonds</b><span>
+                            </td>
+                        </tr>
+                    </tabl>
+                </div>
+            </span>
+        </div>
+    `;
+
+    let existingStreakItem = container.find(`[data-streakid='${streakId}']`);
+
+    if (existingStreakItem.length) {
+        existingStreakItem.replaceWith(html);
+    } else {
+        container.append(html);
+    }
+
+    container.stop();
+    container.animate({
+        scrollTop: container[0].scrollHeight
+    }, 800);
 }
 
 /**
@@ -167,6 +212,9 @@ connection.on('like', (msg) => {
     if (typeof msg.likeCount === 'number') {
         addChatItem('#447dd4', msg, msg.label.replace('{0:user}', '').replace('likes', `${msg.likeCount} likes`))
     }
+
+    addLikesItem(msg)
+
 })
 
 // Member join
@@ -223,3 +271,7 @@ connection.on('streamEnd', () => {
         }, 30000);
     }
 })
+
+function endConnection() {
+    document.location.reload(true);
+}
