@@ -92,37 +92,85 @@ function generateUsernameLink(data) {
 function isPendingStreak(data) {
     return data.giftType === 1 && !data.repeatEnd;
 }
+
+
 var currentVideoCountry = "";
 var isLocked = false;
-async function playVideo(src, time, isLike) {
-    let videoElem = document.getElementById("video");
+var timeOut = null;
+var videoElem; 
+var timerEnd;
+var msToEnd = timerEnd - new Date().getTime();
 
-    if (currentVideoCountry==""){
+/**
+ * Play video, a partir de una ruta (src), el temps que ha de recorrer (time) i si es un video obtingut per x likes.
+ * Mostra el video.
+ * 
+ * @param {String} src 
+ * @param {Integer} time 
+ * @param {String} isLike 
+ */
+
+async function playVideo(src, time, isLike) { 
+    console.log("Source: "+src);
+    videoElem = document.getElementById("video");
+    if (window.currentVideoCountry==""){
         window.currentVideoCountry = isLike;
     }
-    if (!window.isLocked || currentVideoCountry == isLike){
-        if(currentVideoCountry == isLike) {
+    if (window.isLocked == false /* || window.currentVideoCountry == isLike*/){
+        if(window.currentVideoCountry == isLike) {
             try {
                 if (time > 10) {
                     window.isLocked = true;
+                    console.log("locked");
                 }
                 console.log("time: "+time);
-                await videoElem.play();
+
+                if ("" == window.videoElem.getAttribute('src')) {
+                    window.videoElem.setAttribute('src', src);
+                }
+
+                await window.videoElem.play();
                 console.log("playing");
-                setTimeout(function(){
-                    videoElem.pause();
-                    console.log("pause") 
-                },(time*1000));
+                
+                if (window.timeOut == null) {
+                    window.timeOut = window.setTimeout(function(){
+                        // Calculem el moment que hauria de finaltizar el timer, a partir de la data actual 
+                        // i la suma del temps que volem que s'executi el video.
+                        window.timerEnd = new Date().getTime() + time*1000; 
+
+                        window.videoElem.pause();
+                        console.log("pause");
+                    },(time*1000));
+
+                } else {
+                    console.log(time+" time before");
+
+                    // Si el timer encara te temops guardat, s'acumula a la variable time.
+                    if (window.timerEnd - new Date().getTime() > 0) time += window.timerEnd - new Date().getTime();
+
+                    window.clearTimeout(window.timeOut); 
+                    console.log("clear timeout");
+                    console.log(time+" time after");
+                    window.timeOut = null;
+
+                    window.timeOut = window.setTimeout(function(){
+                        window.videoElem.pause();
+                        console.log("pause");
+                    },(time*1000));
+                }
+
               } catch(err) {
                   console.log("not playing, error: "+err);
               }
         } else {
-            videoElem.setAttribute('src', src);
+            window.videoElem.setAttribute('src', src);
             if (isLike == "like") {
                 try {
+                    window.clearTimeout(window.timeOut); 
                     window.isLocked = true;
-                    await videoElem.play();
-                    console.log("Playing video");
+                    console.log("locked hasbullah video");
+                    await window.videoElem.play();
+                    console.log("Playing hasbullah");
                   } catch(err) {
                       console.log("not playing, error: "+err);
                   }
@@ -130,24 +178,45 @@ async function playVideo(src, time, isLike) {
                 try {
                     if (time > 10) {
                         window.isLocked = true;
+                        console.log("locked")
                     }
                     console.log("time: "+time);
-                    await videoElem.play();
+                    await window.videoElem.play();
                     console.log("playing");
-                    setTimeout(function(){
-                        videoElem.pause();
-                        console.log("pause") 
-                    },(time*1000));
+
+                    if (window.timeOut == null) {
+                        window.timeOut = window.setTimeout(function(){
+                            window.timerEnd = new Date().getTime() + time*1000;
+                            window.videoElem.pause();
+                            console.log("pause") 
+                        },(time*1000));
+                    }else {
+                        console.log(time+" time before");
+                        console.log("Temps guardat: "+window.timerEnd - new Date().getTime());
+                        // Si el timer encara te temops guardat, s'acumula a la variable time.
+                        if (window.timerEnd - new Date().getTime() > 0) time += window.timerEnd - new Date().getTime();
+                        window.clearTimeout(window.timeOut); 
+                        console.log("clear timeout")
+                        console.log(time+" time after");
+                        window.timeOut = null;
+
+                        window.timeOut = window.setTimeout(function(){
+                            window.videoElem.pause();
+                            console.log("pause") 
+                        },(time*1000));
+                    }
+
                   } catch(err) {
                       console.log("not playing, error: "+err);
                   }
             }
         }
     } else {
-        if(videoElem.playing){ 
-            console.log("Currently playing a video")
+        if(!window.videoElem.paused){ 
+            console.log("Currently a video is fixed")
         } else {
-            window.isLocked == false;
+            window.isLocked = false;
+            console.log("unlocked")
         }
     }
     
@@ -251,7 +320,6 @@ function addGiftItem(data) {
     }
 
     let streakId = data.userId.toString() + '_' + data.giftId;
-    console.log(data.giftPictureUrl);
 
     if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.png"){
         console.log("usa")
@@ -387,11 +455,12 @@ connection.on('gift', (data) => {
     if (!isPendingStreak(data) && data.diamondCount > 0) {
         diamondsCount += (data.diamondCount * data.repeatCount);
         updateRoomStats();
+        addGiftItem(data);
     }
 
     if (window.settings.showGifts === "0") return;
 
-    addGiftItem(data);
+    
 })
 
 // share, follow
