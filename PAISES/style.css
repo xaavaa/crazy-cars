@@ -10,7 +10,7 @@
       "primers primers espectadors"
       "paisos paisos diamants";
   }
-  .video {
+  .video-class {
     object-fit: fill;
   }
   
@@ -20,7 +20,7 @@
   
   .diamants { grid-area: diamants; }
   
-  .video { grid-area: video; }
+  .video-class { grid-area: video; }
   
   .primers {  display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -80,7 +80,7 @@
     position: absolute;
 }
 
-.video{
+.video-class{
     z-index: 1;
     height: 330px;
     width: 560px;
@@ -88,13 +88,18 @@
     border: 5px solid blueviolet;
     margin-left:30px;
     position: fixed;
-    margin-top: 5px;
+    margin-top: 45px;
 }
 
+.video-class .video {
+  max-width: 560px;
+  max-height: 330px;
+  position: center;
+}
 .paisos {
     z-index: 1;
     position: absolute;
-    margin-top: 542px;
+    margin-top: 580px;
     margin-left:30px;
     position: fixed;
 }
@@ -113,7 +118,7 @@
 z-index: 1;
 border: 5px solid blueviolet;
 position: absolute;
-margin-top:350px;
+margin-top:320px;
 width: 560px;
 height: 180px;
 margin-left:30px;
