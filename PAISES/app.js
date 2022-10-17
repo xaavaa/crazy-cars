@@ -116,6 +116,11 @@ async function playVideo(src, time, isLike) {
     if (window.currentVideoCountry==""){
         window.currentVideoCountry = isLike;
     }
+
+    // Primer if comprova si s'ha fixat algun video. 
+    // En cas que n'hi hagi un, comprovarà si esta pausat (else). 
+    // I si ja està pausat, per tant ha acabat el video torna a cridar el mètode playVideo, 
+    // i reprodueix el següent.
     if (window.isLocked == false /* || window.currentVideoCountry == isLike*/){
         if(window.currentVideoCountry == isLike) {
             try {
@@ -137,7 +142,7 @@ async function playVideo(src, time, isLike) {
                         // Calculem el moment que hauria de finaltizar el timer, a partir de la data actual 
                         // i la suma del temps que volem que s'executi el video.
                         window.timerEnd = new Date().getTime() + time*1000; 
-
+                        window.isLocked = false;
                         window.videoElem.pause();
                         console.log("pause");
                     },(time*1000));
@@ -188,6 +193,7 @@ async function playVideo(src, time, isLike) {
                         window.timeOut = window.setTimeout(function(){
                             window.timerEnd = new Date().getTime() + time*1000;
                             window.videoElem.pause();
+                            window.isLocked = false;
                             console.log("pause") 
                         },(time*1000));
                     }else {
@@ -216,7 +222,8 @@ async function playVideo(src, time, isLike) {
             console.log("Currently a video is fixed")
         } else {
             window.isLocked = false;
-            console.log("unlocked")
+            console.log("unlocked");
+            playVideo(src, time, isLike);
         }
     }
     
