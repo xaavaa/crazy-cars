@@ -114,7 +114,7 @@
    margin-top:2.5px;
 }
 
-.primers .primersimatge{
+.primers img{
 z-index: 1;
 border: 5px solid blueviolet;
 position: absolute;
@@ -140,7 +140,7 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 380px;
-    margin-top: 445px;
+    margin-top: 365px;
 }
 
 .primers .top3{
@@ -159,7 +159,7 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 490px;
-    margin-top: 485px;
+    margin-top: 400px;
 }
 
 .primers .top5{
@@ -168,6 +168,7 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 62.5px;
-    margin-top: 500px;
+    margin-top: 410px;
 }
+
 
