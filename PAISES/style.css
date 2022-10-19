@@ -114,6 +114,7 @@
    margin-top:2.5px;
 }
 
+
 .primers img{
 z-index: 1;
 border: 5px solid blueviolet;
@@ -132,6 +133,7 @@ position: fixed;
     position: absolute;
     margin-left: 280px;
     margin-top: 350px;
+    background-image: url("imgs/eeuu.png");
 }
 
 .primers .top2{
@@ -168,5 +170,9 @@ position: fixed;
     position: absolute;
     margin-left: 70px;
     margin-top: 415px;
+}
+
+.top1 {
+  
 }
 
