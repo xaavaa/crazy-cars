@@ -114,7 +114,7 @@
    margin-top:2.5px;
 }
 
-.primers img{
+.primers .primersimatge{
 z-index: 1;
 border: 5px solid blueviolet;
 position: absolute;
@@ -129,7 +129,7 @@ position: fixed;
     z-index: 2;
     height: 50px;
     width: 75px;
-    position: absolute;
+    position: fixed;
     margin-left: 280px;
     margin-top: 350px;
 }
@@ -140,16 +140,17 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 380px;
-    margin-top: 365px;
+    margin-top: 445px;
 }
 
 .primers .top3{
     z-index: 2;
     height: 50px;
     width: 75px;
-    position: absolute;
+    position: fixed;
     margin-left: 175px;
     margin-top: 385px;
+   
 }
 
 .primers .top4{
@@ -158,7 +159,7 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 490px;
-    margin-top: 405px;
+    margin-top: 485px;
 }
 
 .primers .top5{
@@ -166,7 +167,7 @@ position: fixed;
     height: 50px;
     width: 75px;
     position: absolute;
-    margin-left: 70px;
-    margin-top: 415px;
+    margin-left: 62.5px;
+    margin-top: 500px;
 }
 
