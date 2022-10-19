@@ -121,7 +121,7 @@ async function playVideo(src, time, isLike) {
     // En cas que n'hi hagi un, comprovarà si esta pausat (else). 
     // I si ja està pausat, per tant ha acabat el video torna a cridar el mètode playVideo, 
     // i reprodueix el següent.
-    if (window.isLocked == false /* || window.currentVideoCountry == isLike*/){
+    if (window.isLocked == false){
         if(window.currentVideoCountry == isLike) {
             try {
                 if (time > 10) {
@@ -136,16 +136,14 @@ async function playVideo(src, time, isLike) {
 
                 await window.videoElem.play();
                 console.log("playing");
-                
+                /*
                 if (window.timeOut == null) {
                     window.timeOut = window.setTimeout(function(){
-                        // Calculem el moment que hauria de finaltizar el timer, a partir de la data actual 
-                        // i la suma del temps que volem que s'executi el video.
-                        window.timerEnd = new Date().getTime() + time*1000; 
-                        window.isLocked = false;
-                        window.videoElem.pause();
-                        console.log("pause");
-                    },(time*1000));
+                    // Calculem el moment que hauria de finaltizar el timer, a partir de la data actual 
+                    // i la suma del temps que volem que s'executi el video.
+                    window.timerEnd = new Date().getTime() + time*1000; 
+                    window.isLocked = false;
+                    },(time*1000)); 
 
                 } else {
                     console.log(time+" time before");
@@ -157,12 +155,11 @@ async function playVideo(src, time, isLike) {
                     console.log("clear timeout");
                     console.log(time+" time after");
                     window.timeOut = null;
-
+                    
                     window.timeOut = window.setTimeout(function(){
                         window.videoElem.pause();
                         console.log("pause");
-                    },(time*1000));
-                }
+                    },(time*1000));*/
 
               } catch(err) {
                   console.log("not playing, error: "+err);
@@ -189,6 +186,7 @@ async function playVideo(src, time, isLike) {
                     await window.videoElem.play();
                     console.log("playing");
 
+                    /*
                     if (window.timeOut == null) {
                         window.timeOut = window.setTimeout(function(){
                             window.timerEnd = new Date().getTime() + time*1000;
@@ -210,7 +208,7 @@ async function playVideo(src, time, isLike) {
                             window.videoElem.pause();
                             console.log("pause") 
                         },(time*1000));
-                    }
+                    } */
 
                   } catch(err) {
                       console.log("not playing, error: "+err);
@@ -319,6 +317,28 @@ function addChatItem(color, data, text, summarize) {
 /**
  * Add a new gift to the gift container
  */
+
+function sortTops(){
+
+}
+
+function updateDictionaryTops() {
+
+}
+
+var dictTops = { 
+    usa : 0 , 
+    india : 0 , 
+    ukraina : 0 , 
+    spain : 0 , 
+    uk : 0 , 
+    china : 0 , 
+    francia : 0 , 
+    alemania : 0 , 
+    arabia : 0 , 
+  }
+
+
 function addGiftItem(data) {
     let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
 
