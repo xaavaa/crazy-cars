@@ -30,6 +30,7 @@
     grid-template-areas:
       "top5 top3 top1 top2 top4";
     grid-area: primers;
+    margin-bottom: -100px;
   }
   
   .top1 { grid-area: top1; }
@@ -148,7 +149,7 @@ position: fixed;
     height: 50px;
     width: 75px;
     position: fixed;
-    margin-left: 175px;
+    margin-left: 168px;
     margin-top: 385px;
    
 }
@@ -170,5 +171,46 @@ position: fixed;
     margin-left: 62.5px;
     margin-top: 410px;
 }
+
+
+p#top1_text {
+  position: absolute;
+  margin-top: 390px;
+  margin-left: 310px;
+  z-index: 2;
+  background-color: white;
+}
+
+p#top2_text {
+  position: absolute;
+  margin-top: 405px;
+  margin-left: 420px;
+  z-index: 2;
+  background-color: white;
+}
+
+p#top3_text {
+  position: absolute;
+  margin-top: 425px;
+  margin-left: 210px;
+  z-index: 2;
+}
+
+p#top4_text {
+  position: absolute;
+  margin-top: 440px;
+  margin-left: 530px;
+  z-index: 2;
+}
+
+p#top5_text {
+  position: absolute;
+  margin-top: 450px;
+  margin-left: 100px;
+  z-index: 2;
+}
+
+
+
 
 

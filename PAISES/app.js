@@ -353,6 +353,24 @@ function sortTops(){
         window.top5countrysName.push(key);
     }
 
+    var list = [];
+    for (var j = 0; j < window.top5countrysName.length; j++) 
+        list.push({'name': window.top5countrysName[j], 'value': top5countrysValue[j]});
+
+    list.sort(function(a, b) {
+        return ((a.value < b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
+        //Sort could be modified to, for example, sort on the age 
+        // if the name is the same. 
+    });
+
+    for (var k = 0; k < list.length; k++) {
+        console.log(list[k].name +" --  "+ list[k].value)
+        window.top5countrysName[k] = list[k].name;
+        window.top5countrysValue[k] = list[k].value;
+    }
+
+    window.top5countrysName = window.top5countrysName.reverse();
+    window.top5countrysValue = window.top5countrysValue.reverse();
 }
 
 function showTops() {
@@ -410,6 +428,8 @@ function addGiftItem(data) {
         console.log("india")
         var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["india"] = window.dictTops["india"] + data.repeatCount;
+        sortTops();
+        showTops();
         playVideo("videos/india/"+i+".mp4",data.repeatCount,"india");
 
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.png") {
@@ -443,9 +463,9 @@ function addGiftItem(data) {
         playVideo("videos/china/"+i+".mp4",data.repeatCount,"china");
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/c043cd9e418f13017793ddf6e0c6ee99~tplv-obj.png") {
-        console.log("france")            
+        console.log("francia")            
         var i = Math.floor(Math.random() * 2) + 1;
-        window.dictTops["france"] = window.dictTops["france"] + data.repeatCount;
+        window.dictTops["francia"] = window.dictTops["francia"] + data.repeatCount;
         sortTops();
         showTops();
         playVideo("videos/france/"+i+".mp4",data.repeatCount,"france");
