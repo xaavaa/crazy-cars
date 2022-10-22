@@ -260,7 +260,7 @@ function addLikesItem(data) {
     
     if (window.tempLikes > 2000) {
         console.log("hasbullah")
-        var i = Math.floor(Math.random() * 2) + 1;
+        var i = Math.floor(Math.random() * 7) + 1;
 
         playVideo("videos/hasbullah/"+i+".mp4", 0, "like");
         tempLikes = 0;
@@ -402,6 +402,17 @@ function showTops() {
 
 }
 
+function updateGifter(nickname, countryName) {
+    let flagImg = document.getElementById('banderaactual');
+    var donerName = document.getElementById('nomdequidona');
+
+    console.log(dictImages[countryName]);
+    console.log(nickname);
+
+    flagImg.setAttribute('src', dictImages[countryName]);
+    donerName.innerHTML = nickname;
+}
+
 
 
 function addGiftItem(data) {
@@ -411,33 +422,36 @@ function addGiftItem(data) {
         container.find('div').slice(0, 100).remove();
     }
 
-    let streakId = data.userId.toString() + '_' + data.giftId;
+    // let streakId = data.userId.toString() + '_' + data.giftId;
 
     if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.png"){
         console.log("eeuu")
-        var i = Math.floor(Math.random() * 2) + 1;
+        var i = Math.floor(Math.random() * 5) + 1;
         console.log("a"+window.dictTops)
 
         window.dictTops["eeuu"] = window.dictTops["eeuu"] + data.repeatCount;
         console.log("b"+window.dictTops)
         sortTops();
         showTops();
+        updateGifter(data.nickname, "eeuu");
         playVideo("videos/usa/"+i+".mp4",data.repeatCount,"usa");
         
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/a99fc8541c7b91305de1cdcf47714d03~tplv-obj.png") {
         console.log("india")
-        var i = Math.floor(Math.random() * 4) + 1;
+        var i = Math.floor(Math.random() * 5) + 1;
         window.dictTops["india"] = window.dictTops["india"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "india");
         playVideo("videos/india/"+i+".mp4",data.repeatCount,"india");
 
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.png") {
         console.log("ucrania")            
-        var i = Math.floor(Math.random() * 2) + 1;
+        var i = Math.floor(Math.random() * 5) + 1;
         window.dictTops["ucrania"] = window.dictTops["ucrania"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "ucrania");
         playVideo("videos/ukraina/"+i+".mp4",data.repeatCount,"ukraina");
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.png") {
         console.log("espana")            
@@ -445,45 +459,51 @@ function addGiftItem(data) {
         window.dictTops["espana"] = window.dictTops["espana"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "ucrania");
         playVideo("videos/spain/"+i+".mp4",data.repeatCount,"spain");
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/09d9b188294ecf9b210c06f4e984a3bd~tplv-obj.png") {
         console.log("inglaterra")            
-        var i = Math.floor(Math.random() * 1) + 1;
+        var i = Math.floor(Math.random() * 5) + 1;
         window.dictTops["inglaterra"] = window.dictTops["inglaterra"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "inglaterra");
         playVideo("videos/uk/"+i+".mp4",data.repeatCount,"uk");
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/728cc7436005cace2791aa7500e4bf95~tplv-obj.png") {
         console.log("china")            
-        var i = Math.floor(Math.random() * 2) + 1;
+        var i = Math.floor(Math.random() * 5) + 1;
         window.dictTops["china"] = window.dictTops["china"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "china");
         playVideo("videos/china/"+i+".mp4",data.repeatCount,"china");
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/c043cd9e418f13017793ddf6e0c6ee99~tplv-obj.png") {
         console.log("francia")            
-        var i = Math.floor(Math.random() * 2) + 1;
+        var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["francia"] = window.dictTops["francia"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "francia");
         playVideo("videos/france/"+i+".mp4",data.repeatCount,"france");
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.png") {
         console.log("alemania")            
-        var i = Math.floor(Math.random() * 1) + 1;
+        var i = Math.floor(Math.random() * 1) + 4;
         window.dictTops["alemania"] = window.dictTops["alemania"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "alemania");
         playVideo("videos/alemania/"+i+".mp4",data.repeatCount,"alemania");
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/a43ec3a70f63d2d48683bed39e18cd2d~tplv-obj.png") {
         console.log("arabia")            
-        var i = Math.floor(Math.random() * 2) + 1;
+        var i = Math.floor(Math.random() * 5) + 1;
         window.dictTops["arabia"] = window.dictTops["arabia"] + data.repeatCount;
         sortTops();
         showTops();
+        updateGifter(data.nickname, "arabia");
         playVideo("videos/arabia/"+i+".mp4",data.repeatCount,"arabia");
     }
 /*

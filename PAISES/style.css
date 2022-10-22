@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
 
 .container {  display: grid;
     grid-template-columns: 1fr 0.5fr 1.5fr;
@@ -133,6 +134,7 @@ position: fixed;
     position: fixed;
     margin-left: 280px;
     margin-top: 350px;
+    
 }
 
 .primers .top2{
@@ -179,6 +181,8 @@ p#top1_text {
   margin-left: 310px;
   z-index: 2;
   background-color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
 
 p#top2_text {
@@ -187,6 +191,8 @@ p#top2_text {
   margin-left: 420px;
   z-index: 2;
   background-color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
 
 p#top3_text {
@@ -194,6 +200,8 @@ p#top3_text {
   margin-top: 425px;
   margin-left: 210px;
   z-index: 2;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
 
 p#top4_text {
@@ -201,6 +209,8 @@ p#top4_text {
   margin-top: 440px;
   margin-left: 530px;
   z-index: 2;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
 
 p#top5_text {
@@ -208,6 +218,8 @@ p#top5_text {
   margin-top: 450px;
   margin-left: 100px;
   z-index: 2;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
 }
 
 
