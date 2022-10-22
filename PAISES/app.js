@@ -19,6 +19,8 @@ $(document).ready(() => {
         if (e.key === 'Enter') {
             connect();
         }
+        sortTops();
+        showTops();
     });
 
     if (window.settings.username) connect();
@@ -27,9 +29,9 @@ $(document).ready(() => {
         alemania: 0,
         arabia: 0,
         china: 0,
-        eeuu : 0,
-        espana: 0,
-        francia: 0,
+        eeuu : 1,
+        espana: 8,
+        francia: 3,
         india: 0,
         inglaterra: 0,
         ucrania: 0
