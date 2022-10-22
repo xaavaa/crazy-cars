@@ -199,6 +199,7 @@ p#top2_text {
 }
 
 p#top3_text {
+  background-color: white;
   position: absolute;
   margin-top: 425px;
   margin-left: 210px;
@@ -208,6 +209,7 @@ p#top3_text {
 }
 
 p#top4_text {
+  background-color: white;
   position: absolute;
   margin-top: 440px;
   margin-left: 530px;
@@ -217,6 +219,7 @@ p#top4_text {
 }
 
 p#top5_text {
+  background-color: white;
   position: absolute;
   margin-top: 450px;
   margin-left: 100px;
@@ -235,20 +238,25 @@ p#top5_text {
 }
 
 p#nomdequidona{
+background-color: white;
 color:black;
 z-index: 3;
-margin-left: 530px;
+margin-left: 450px;
 margin-top: 300px;
 position:fixed;
+font-size: 20px;
 }
 
 p#locked{
   color:orange;
   z-index: 3;
-  margin-left: 250px;
-  margin-top: 280px;
+  margin-left: 185px;
+  margin-top: 270px;
   position:fixed;
   font-weight: bold;
+  font-size: 25px;
+  -webkit-text-stroke: 0.5px black;
+
   }
   
   

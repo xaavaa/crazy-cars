@@ -127,92 +127,7 @@ const dictImages = {
     arabia : "imgs/arabia.png" 
   }
 
-/**
- * Play video, a partir de una ruta (src), el temps que ha de recorrer (time) i si es un video obtingut per x likes.
- * Mostra el video.
- * 
- * @param {String} src 
- * @param {Integer} time 
- * @param {String} isLike 
- */
-
-async function playVideo(src, time, isLike) { 
-    console.log("Source: "+src);
-    videoElem = document.getElementById("video");
-    if (window.currentVideoCountry==""){
-        window.currentVideoCountry = isLike;
-    }
-
-    // Primer if comprova si s'ha fixat algun video. 
-    // En cas que n'hi hagi un, comprovarà si esta pausat (else). 
-    // I si ja està pausat, per tant ha acabat el video torna a cridar el mètode playVideo, 
-    // i reprodueix el següent.
-    if (window.isLocked == false){
-        if(window.currentVideoCountry == isLike) {
-            try {
-                if (time > 10) {
-                    window.isLocked = true;
-                    console.log("locked");
-                }
-                console.log("time: "+time);
-
-                if ("" == window.videoElem.getAttribute('src')) {
-                    window.videoElem.setAttribute('src', src);
-                }
-
-                await window.videoElem.play();
-                console.log("playing");
-                /*
-                if (window.timeOut == null) {
-                    window.timeOut = window.setTimeout(function(){
-                    // Calculem el moment que hauria de finaltizar el timer, a partir de la data actual 
-                    // i la suma del temps que volem que s'executi el video.
-                    window.timerEnd = new Date().getTime() + time*1000; 
-                    window.isLocked = false;
-                    },(time*1000)); 
-
-                } else {
-                    console.log(time+" time before");
-
-                    // Si el timer encara te temops guardat, s'acumula a la variable time.
-                    if (window.timerEnd - new Date().getTime() > 0) time += window.timerEnd - new Date().getTime();
-
-                    window.clearTimeout(window.timeOut); 
-                    console.log("clear timeout");
-                    console.log(time+" time after");
-                    window.timeOut = null;
-                    
-                    window.timeOut = window.setTimeout(function(){
-                        window.videoElem.pause();
-                        console.log("pause");
-                    },(time*1000));*/
-
-              } catch(err) {
-                  console.log("not playing, error: "+err);
-              }
-        } else {
-            window.videoElem.setAttribute('src', src);
-            if (isLike == "like") {
-                try {
-                    window.clearTimeout(window.timeOut); 
-                    window.isLocked = true;
-                    console.log("locked hasbullah video");
-                    await window.videoElem.play();
-                    console.log("Playing hasbullah");
-                  } catch(err) {
-                      console.log("not playing, error: "+err);
-                  }
-            } else {
-                try {
-                    if (time > 10) {
-                        window.isLocked = true;
-                        console.log("locked")
-                    }
-                    console.log("time: "+time);
-                    await window.videoElem.play();
-                    console.log("playing");
-
-                    /*
+                      /*
                     if (window.timeOut == null) {
                         window.timeOut = window.setTimeout(function(){
                             window.timerEnd = new Date().getTime() + time*1000;
@@ -236,6 +151,109 @@ async function playVideo(src, time, isLike) {
                         },(time*1000));
                     } */
 
+                                    /*
+                if (window.timeOut == null) {
+                    window.timeOut = window.setTimeout(function(){
+                    // Calculem el moment que hauria de finaltizar el timer, a partir de la data actual 
+                    // i la suma del temps que volem que s'executi el video.
+                    window.timerEnd = new Date().getTime() + time*1000; 
+                    window.isLocked = false;
+                    },(time*1000)); 
+
+                } else {
+                    console.log(time+" time before");
+
+                    // Si el timer encara te temops guardat, s'acumula a la variable time.
+                    if (window.timerEnd - new Date().getTime() > 0) time += window.timerEnd - new Date().getTime();
+
+                    window.clearTimeout(window.timeOut); 
+                    console.log("clear timeout");
+                    console.log(time+" time after");
+                    window.timeOut = null;
+                    
+                    window.timeOut = window.setTimeout(function(){
+                        window.videoElem.pause();
+                        console.log("pause");
+                    },(time*1000));*/
+/*function countdown(timeleft){
+    console.log("COUNTDOWN")
+    var lockedText = document.getElementById("locked");
+    
+    var downloadTimer = setInterval(function(){
+    if(timeleft <= 0){
+        clearInterval(downloadTimer);
+    }
+    lockedText.innerHTML = "LOCKED VIDEO "+timeleft.toString()+"s";
+    timeleft -= 1;
+    }, 1000);
+    }*/
+
+/**
+ * Play video, a partir de una ruta (src), el temps que ha de recorrer (time) i si es un video obtingut per x likes.
+ * Mostra el video.
+ * 
+ * @param {String} src 
+ * @param {Integer} time 
+ * @param {String} isLike 
+ */
+
+async function playVideo(src, time, isLike) { 
+    console.log("Source: "+src);
+    var lockedText = document.getElementById("locked");
+    videoElem = document.getElementById("video");
+    if (window.currentVideoCountry==""){
+        window.currentVideoCountry = isLike;
+    }
+
+    // Primer if comprova si s'ha fixat algun video. 
+    // En cas que n'hi hagi un, comprovarà si esta pausat (else). 
+    // I si ja està pausat, per tant ha acabat el video torna a cridar el mètode playVideo, 
+    // i reprodueix el següent.
+    if (window.isLocked == false){
+        if(window.currentVideoCountry == isLike) {
+            try {
+                if (time > 10) {
+                    window.isLocked = true;
+                    console.log("locked");
+                    lockedText.innerHTML = "🔒LOCKED VIDEO🔒";
+                }
+                console.log("time: "+time);
+
+                if ("" == window.videoElem.getAttribute('src')) {
+                    window.videoElem.setAttribute('src', src);
+                }
+
+                await window.videoElem.play();
+                console.log("playing");
+
+              } catch(err) {
+                  console.log("not playing, error: "+err);
+              }
+        } else {
+            window.videoElem.setAttribute('src', src);
+            if (isLike == "like") {
+                try {
+                    window.clearTimeout(window.timeOut); 
+                    window.isLocked = true;
+                    lockedText.innerHTML = "🔒LOCKED VIDEO🔒";
+                    console.log("locked hasbullah video");
+                    await window.videoElem.play();
+                    console.log("Playing hasbullah");
+                  } catch(err) {
+                      console.log("not playing, error: "+err);
+                  }
+            } else {
+                try {
+                    if (time > 10) {
+                        window.isLocked = true;
+                        console.log("locked")
+                        var lockedText = document.getElementById("locked");
+                        lockedText.innerHTML = "🔒LOCKED VIDEO🔒";
+                    }
+                    console.log("time: "+time);
+                    await window.videoElem.play();
+                    console.log("playing");
+
                   } catch(err) {
                       console.log("not playing, error: "+err);
                   }
@@ -247,6 +265,8 @@ async function playVideo(src, time, isLike) {
         } else {
             window.isLocked = false;
             console.log("unlocked");
+            lockedText = document.getElementById("locked");
+            lockedText.innerHTML = "+10💰 = FULL VIDEO";
             playVideo(src, time, isLike);
         }
     }
@@ -258,9 +278,9 @@ function addLikesItem(data) {
     window.tempLikes += data.likeCount;
     console.log(tempLikes);
     
-    if (window.tempLikes > 2000) {
+    if (window.tempLikes > 500) {
         console.log("hasbullah")
-        var i = Math.floor(Math.random() * 7) + 1;
+        var i = Math.floor(Math.random() * 6) + 1;
 
         playVideo("videos/hasbullah/"+i+".mp4", 0, "like");
         tempLikes = 0;
@@ -364,7 +384,6 @@ function sortTops(){
     });
 
     for (var k = 0; k < list.length; k++) {
-        console.log(list[k].name +" --  "+ list[k].value)
         window.top5countrysName[k] = list[k].name;
         window.top5countrysValue[k] = list[k].value;
     }
@@ -374,7 +393,6 @@ function sortTops(){
 }
 
 function showTops() {
-    console.log(window.dictTops);
     var top1 = document.getElementById('top1_text');
     var top2 = document.getElementById('top2_text');
     var top3 = document.getElementById('top3_text');
@@ -406,11 +424,8 @@ function updateGifter(nickname, countryName) {
     let flagImg = document.getElementById('banderaactual');
     var donerName = document.getElementById('nomdequidona');
 
-    console.log(dictImages[countryName]);
-    console.log(nickname);
-
     flagImg.setAttribute('src', dictImages[countryName]);
-    donerName.innerHTML = nickname;
+    donerName.innerHTML = "@"+nickname;
 }
 
 
@@ -426,7 +441,7 @@ function addGiftItem(data) {
 
     if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.png"){
         console.log("eeuu")
-        var i = Math.floor(Math.random() * 5) + 1;
+        var i = Math.floor(Math.random() * 4) + 1;
         console.log("a"+window.dictTops)
 
         window.dictTops["eeuu"] = window.dictTops["eeuu"] + data.repeatCount;
@@ -438,7 +453,7 @@ function addGiftItem(data) {
         
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/a99fc8541c7b91305de1cdcf47714d03~tplv-obj.png") {
         console.log("india")
-        var i = Math.floor(Math.random() * 5) + 1;
+        var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["india"] = window.dictTops["india"] + data.repeatCount;
         sortTops();
         showTops();
@@ -447,7 +462,7 @@ function addGiftItem(data) {
 
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.png") {
         console.log("ucrania")            
-        var i = Math.floor(Math.random() * 5) + 1;
+        var i = Math.floor(Math.random() * 3) + 1;
         window.dictTops["ucrania"] = window.dictTops["ucrania"] + data.repeatCount;
         sortTops();
         showTops();
@@ -455,11 +470,11 @@ function addGiftItem(data) {
         playVideo("videos/ukraina/"+i+".mp4",data.repeatCount,"ukraina");
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.png") {
         console.log("espana")            
-        var i = Math.floor(Math.random() * 5) + 1;
+        var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["espana"] = window.dictTops["espana"] + data.repeatCount;
         sortTops();
         showTops();
-        updateGifter(data.nickname, "ucrania");
+        updateGifter(data.nickname, "espana");
         playVideo("videos/spain/"+i+".mp4",data.repeatCount,"spain");
     } else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/09d9b188294ecf9b210c06f4e984a3bd~tplv-obj.png") {
         console.log("inglaterra")            
@@ -472,7 +487,7 @@ function addGiftItem(data) {
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/728cc7436005cace2791aa7500e4bf95~tplv-obj.png") {
         console.log("china")            
-        var i = Math.floor(Math.random() * 5) + 1;
+        var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["china"] = window.dictTops["china"] + data.repeatCount;
         sortTops();
         showTops();
@@ -490,7 +505,7 @@ function addGiftItem(data) {
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.png") {
         console.log("alemania")            
-        var i = Math.floor(Math.random() * 1) + 4;
+        var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["alemania"] = window.dictTops["alemania"] + data.repeatCount;
         sortTops();
         showTops();
@@ -499,7 +514,7 @@ function addGiftItem(data) {
     }
     else if (data.giftPictureUrl == "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/a43ec3a70f63d2d48683bed39e18cd2d~tplv-obj.png") {
         console.log("arabia")            
-        var i = Math.floor(Math.random() * 5) + 1;
+        var i = Math.floor(Math.random() * 4) + 1;
         window.dictTops["arabia"] = window.dictTops["arabia"] + data.repeatCount;
         sortTops();
         showTops();
