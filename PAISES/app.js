@@ -29,9 +29,9 @@ $(document).ready(() => {
         alemania: 0,
         arabia: 0,
         china: 0,
-        eeuu : 1,
-        espana: 8,
-        francia: 3,
+        eeuu : 0,
+        espana: 0,
+        francia: 0,
         india: 0,
         inglaterra: 0,
         ucrania: 0
@@ -48,6 +48,8 @@ Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
 
 var tempLikes = 0;
 function connect() {
+    updateGifter("hasbullah_fan", "eeuu");
+    playVideo("videos/usa/"+1+".mp4",1,"usa");
     let uniqueId = window.settings.username || $('#uniqueIdInput').val();
     if (uniqueId !== '') {
 
@@ -106,13 +108,13 @@ var msToEnd = timerEnd - new Date().getTime();
 var top5countrysName = [""];
 var top5countrysValue = [""];
 var dictTops = { 
-    eeuu : 0, 
+    eeuu : 4, 
     india : 0, 
     ucrania : 0, 
-    espana : 0, 
+    espana : 12, 
     inglaterra : 0, 
-    china : 0, 
-    francia : 0, 
+    china : 2, 
+    francia : 5, 
     alemania : 0, 
     arabia : 0 
   }
