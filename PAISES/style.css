@@ -13,6 +13,7 @@
   }
   .video-class {
     object-fit: fill;
+    
   }
   
   .input { grid-area: input; }
@@ -91,6 +92,8 @@
     margin-left:30px;
     position: fixed;
     margin-top: 45px;
+    display: flex;
+    align-items: center;
 }
 
 .video-class .video {
@@ -222,7 +225,30 @@ p#top5_text {
   font-size: 25px;
 }
 
+.primers .banderaquienvia {
+  z-index: 3;
+  height: 75px;
+  width: 100px;
+  position: fixed;
+  margin-left: 490px;
+  margin-top: 240px;
+}
 
+p#nomdequidona{
+color:black;
+z-index: 3;
+margin-left: 530px;
+margin-top: 300px;
+position:fixed;
+}
 
-
-
+p#locked{
+  color:orange;
+  z-index: 3;
+  margin-left: 250px;
+  margin-top: 280px;
+  position:fixed;
+  font-weight: bold;
+  }
+  
+  
