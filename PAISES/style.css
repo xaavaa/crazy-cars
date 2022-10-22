@@ -16,13 +16,6 @@
     
   }
   
-  body {
-    margin-top: -30px;
-  }
-
-  .input{
-    margin-top: 40px;
-  }
   .input { grid-area: input; }
   
   .espectadors { grid-area: espectadors; }
@@ -130,7 +123,7 @@
 z-index: 1;
 border: 5px solid blueviolet;
 position: absolute;
-margin-top:280px;
+margin-top:320px;
 width: 560px;
 height: 180px;
 margin-left:30px;
@@ -142,8 +135,8 @@ position: fixed;
     height: 50px;
     width: 75px;
     position: fixed;
-    margin-left: 272.5px;
-    margin-top: 310px;
+    margin-left: 280px;
+    margin-top: 350px;
     
 }
 
@@ -153,7 +146,7 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 380px;
-    margin-top: 322.5px;
+    margin-top: 365px;
 }
 
 .primers .top3{
@@ -162,7 +155,7 @@ position: fixed;
     width: 75px;
     position: fixed;
     margin-left: 168px;
-    margin-top: 345px;
+    margin-top: 385px;
    
 }
 
@@ -172,7 +165,7 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 490px;
-    margin-top: 360px;
+    margin-top: 400px;
 }
 
 .primers .top5{
@@ -181,14 +174,14 @@ position: fixed;
     width: 75px;
     position: absolute;
     margin-left: 62.5px;
-    margin-top: 370px;
+    margin-top: 410px;
 }
 
 
 p#top1_text {
   position: absolute;
-  margin-top: 350px;
-  margin-left: 305px;
+  margin-top: 390px;
+  margin-left: 310px;
   z-index: 2;
   background-color: white;
   font-family: 'Josefin Sans', sans-serif;
@@ -197,7 +190,7 @@ p#top1_text {
 
 p#top2_text {
   position: absolute;
-  margin-top: 365px;
+  margin-top: 405px;
   margin-left: 420px;
   z-index: 2;
   background-color: white;
@@ -208,7 +201,7 @@ p#top2_text {
 p#top3_text {
   background-color: white;
   position: absolute;
-  margin-top: 385px;
+  margin-top: 425px;
   margin-left: 210px;
   z-index: 2;
   font-family: 'Josefin Sans', sans-serif;
@@ -218,7 +211,7 @@ p#top3_text {
 p#top4_text {
   background-color: white;
   position: absolute;
-  margin-top: 400px;
+  margin-top: 440px;
   margin-left: 530px;
   z-index: 2;
   font-family: 'Josefin Sans', sans-serif;
@@ -228,7 +221,7 @@ p#top4_text {
 p#top5_text {
   background-color: white;
   position: absolute;
-  margin-top: 410px;
+  margin-top: 450px;
   margin-left: 100px;
   z-index: 2;
   font-family: 'Josefin Sans', sans-serif;
@@ -241,7 +234,7 @@ p#top5_text {
   width: 100px;
   position: fixed;
   margin-left: 490px;
-  margin-top: 200px;
+  margin-top: 240px;
 }
 
 p#nomdequidona{
@@ -249,7 +242,7 @@ background-color: white;
 color:black;
 z-index: 3;
 margin-left: 450px;
-margin-top: 250px;
+margin-top: 300px;
 position:fixed;
 font-size: 20px;
 }
